@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>All Complaints</title>
+  <link rel="stylesheet" href="dashboardstyle.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body class="bg-black">
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="logo">
+        <i data-lucide="message-square" class="logo-icon"></i>
+        <span>ComplaintPortal</span>
+      </div>
+
+      <a href="/complaints.html" class="nav-item active">
+        <i data-lucide="file-text"></i>
+        <span>Complaints</span>
+      </a>
+      <a href="/new-complaint.html" class="nav-item">
+        <i data-lucide="plus-circle"></i>
+        <span>New Complaint</span>
+      </a>
+      <a href="/settings.html" class="nav-item">
+        <i data-lucide="settings"></i>
+        <span>Settings</span>
+      </a>
+      <button class="logout-btn">
+        <i data-lucide="log-out"></i>
+        <span>Logout</span>
+      </button>
+    </aside>
+
+    <main class="main-content">
+      <div class="dashboard">
+        <div class="dashboard-header">
+          <h1>All Complaints</h1>
+          <p>List of all submitted complaints</p>
+        </div>
+
+        <div id="complaints-container" class="complaints-list"></div>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    
+    lucide.createIcons();
+
+    const container = document.getElementById("complaints-container");
+    const complaints = JSON.parse(localStorage.getItem("complaints") || "[]");
+
+    if (complaints.length === 0) {
+      container.innerHTML = "<p style='color: white;'>No complaints found.</p>";
+    } else {
+      complaints.reverse().forEach((complaint, index) => {
+        const card = document.createElement("div");
+        card.className = "complaint-card";
+        card.style = `
+          background: #1a1a1a;
+          border: 1px solid gold;
+          border-radius: 12px;
+          padding: 16px;
+          margin-bottom: 12px;
+          color: white;
+        `;
+
+        card.innerHTML = `
+          <h3 style="color: gold;">Complaint #${complaints.length - index}</h3>
+          <p><strong>Category:</strong> ${complaint.category}</p>
+          <p><strong>Details:</strong> ${complaint.details}</p>
+          <p><small><strong>Submitted on:</strong> ${complaint.timestamp}</small></p>
+        `;
+
+        container.appendChild(card);
+      });
+    }
+  </script>
+  
+</body>
+</html>

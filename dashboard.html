@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Complaint Portal</title>
+  <link rel="stylesheet" href="dashboardstyle.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-black">
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="logo">
+        <i data-lucide="message-square" class="logo-icon"></i>
+        <span>ComplaintPortal</span>
+        </a>
+        
+      </div>
+      
+        <a href="/complaints.html" class="nav-item">
+          <i data-lucide="file-text"></i>
+          <span>Complaints</span>
+        </a>
+        <a href="/new-complaint.html" class="nav-item">
+          <i data-lucide="plus-circle"></i>
+          <span>New Complaint</span>
+        </a>
+        <a href="/settings.html" class="nav-item">
+          <i data-lucide="settings"></i>
+          <span>Settings</span>
+        </a>
+      </nav>
+      
+      <button class="logout-btn">
+        <i data-lucide="log-out"></i>
+        <span>Logout</span>
+      </button>
+    </aside>
+
+    <main class="main-content">
+      <nav class="top-nav">
+        <div class="search-container">
+          <input type="search" placeholder="Search..." class="search-input">
+        </div>
+        
+        <div class="nav-actions">
+          <button class="icon-btn">
+            <i data-lucide="bell"></i>
+          </button>
+          <button class="icon-btn">
+            <i data-lucide="settings"></i>
+          </button>
+          <div class="user-profile">
+            <div class="avatar">
+              <i data-lucide="user"></i>
+            </div>
+            <span>John Doe</span>
+          </div>
+        </div>
+      </nav>
+
+      <div class="dashboard">
+        <div class="dashboard-header">
+          <h1>Dashboard</h1>
+          <p>Welcome back, Student</p>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <i data-lucide="file-text" class="text-red"></i>
+            <div class="stat-info">
+              <span class="stat-value">12</span>
+              <span class="stat-label">Total Complaints</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <i data-lucide="clock" class="text-yellow"></i>
+            <div class="stat-info">
+              <span class="stat-value">5</span>
+              <span class="stat-label">Pending</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <i data-lucide="check-circle" class="text-green"></i>
+            <div class="stat-info">
+              <span class="stat-value">7</span>
+              <span class="stat-label">Resolved</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <i data-lucide="alert-circle" class="text-red"></i>
+            <div class="stat-info">
+              <span class="stat-value">2</span>
+              <span class="stat-label">Urgent</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="recent-complaints">
+          <div class="section-header">
+            <h2>Recent Complaints</h2>
+            <a href="/complaints.html" class="view-all">View all</a>
+          </div>
+          
+          <div class="complaints-list" id="recent-complaints">
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
